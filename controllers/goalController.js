@@ -1,19 +1,29 @@
-//import { express } from "express";
-//express.getGoals = 
-//const getGoals = express.Router();
- const getGoals = (req,res) => {(
-    res.status(200).json({ messege: 'Get Goals', })
-) };
+import asyncHandler from "express-async-handler"
 
-const setGoals = (req,res) => {(
-    res.status(200).json({ messege: 'Set Goals', })
-)};
-const putGoals = (req,res) => {(
-    res.status(200).json({ messege: `put Goals ${req.params.id}`, })
-)};
-const deleteGoals = (req,res) => {(
-    res.status(200).json({ messege: `delete Goals ${req.params.id}`, })
+const getGoals = asyncHandler(async (req, res) => {
+    (
+        res.status(200).json({ messege: 'Get Goals' })
+    )
+});
 
-)};
-export { getGoals,setGoals,putGoals,deleteGoals  };
+const setGoals = asyncHandler(async (req, res) => {
+
+    console.log(req.body.text);
+    if (!req.body.text) {
+        res.status(400)
+        throw new Error("please add text msg");
+    }
+    res.status(200).json({ messege: 'Set Goals' });
+});
+const putGoals = asyncHandler(async (req, res) => {
+    (
+        res.status(200).json({ messege: `put Goals ${req.params.id}`, })
+    )
+});
+const deleteGoals = asyncHandler(async (req, res) => {
+    (
+        res.status(200).json({ messege: `delete Goals ${req.params.id}`, })
+    )
+});
+export { getGoals, setGoals, putGoals, deleteGoals };
 
