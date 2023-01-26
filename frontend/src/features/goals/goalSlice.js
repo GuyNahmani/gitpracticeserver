@@ -14,5 +14,6 @@ export const goalSlice = createSlice({
         reset,
     },
     extraReducers:{
+        "reset from einav computer"
     }
 })
