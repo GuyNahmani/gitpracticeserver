@@ -14,6 +14,5 @@ export const goalSlice = createSlice({
         reset,
     },
     extraReducers:{
-        reset,
     }
 })
