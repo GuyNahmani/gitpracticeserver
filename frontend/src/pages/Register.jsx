@@ -57,7 +57,7 @@ export default function Register() {
                 </h1>
                 <p>Please create an account</p>
             </section>
-            <secction className="form">
+            <section className="form">
                 <form onSubmit={onSubmit}>
                     <div className="form-group">
                         <input type="text" className="form-control" id="name" value={name} name='name' placeholder="enter your name" onChange={onChange} />
@@ -76,7 +76,7 @@ export default function Register() {
                     </div>
 
                 </form>
-            </secction>
+            </section>
         </>
     )
 }

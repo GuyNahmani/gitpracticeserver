@@ -31,16 +31,16 @@ export default function Login() {
             [e.target.name]: e.target.value,
         }))
     };
-    const onSubmit = (e) => { 
-        e.preventDefault() 
-    const userData = {
-        email,
-        password
-    }
-    dispatch(login(userData ))
+    const onSubmit = (e) => {
+        e.preventDefault()
+        const userData = {
+            email,
+            password
+        }
+        dispatch(login(userData))
     };
     if (isLoading) {
-        return <Spinner /> 
+        return <Spinner />
     }
 
     return (

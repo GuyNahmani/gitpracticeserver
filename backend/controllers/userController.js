@@ -22,13 +22,8 @@ const userLogin = asyncHandler(async (req, res) => {
 
 })
 const getMe = asyncHandler(async (req, res) => {
-    const { _id, name, email } = await User.findById(req.user.id)
 
-    res.status(200).json({
-        id: _id,    
-        name:name,
-        email:email,
-    })
+    res.status(200).json(req.user)
 })
 const userRegister = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;

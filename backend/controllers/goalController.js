@@ -1,6 +1,5 @@
 import asyncHandler from "express-async-handler"
 import Goal from '../models/goalModel.js'
-import User from '../models/userModel.js'
 
 const getGoals = asyncHandler(async (req, res) => {
     const goals = await Goal.find({ user: req.user.id })
@@ -28,12 +27,11 @@ const putGoals = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Id not Found')
     }
-    const user = await User.findById(req.user.id)
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('user not found')
     }
-    if (goal.user.toString() !== user.id) {
+    if (goal.user.toString() !== req.user.id) {
         res.status(401)
         throw new Error('user not authrized')
     }
@@ -49,12 +47,12 @@ const deleteGoals = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error('Id not Found')
     }
-    const user = await User.findById(req.user.id)
-    if (!user) {
+    if (!req.user) {
         res.status(401)
         throw new Error('user not found')
     }
-    if (goal.user.toString() !== user.id) {
+    if (goal.user.toString() !== req.user.id) {
+
         res.status(401)
         throw new Error('user not authrized')
     } 
