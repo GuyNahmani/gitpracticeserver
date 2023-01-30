@@ -11,9 +11,10 @@ export const goalSlice = createSlice({
     name: "goal",
     initialState,
     reducers: {
-        reset,
+        reset: (state) => initialState
     },
-    extraReducers:{
-        "reset from einav computer"
-    }
+
+    
 })
+export const { reset } = goalSlice.actions
+export default goalSlice.reducer
