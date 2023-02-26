@@ -1,4 +1,4 @@
-import axios, { Axios } from 'axios'
+import axios from 'axios'
 
 const API_URL = '/api/users/'
 
@@ -22,7 +22,6 @@ const login = async (userData) => {
 }
 
 const logout = () => {
-    console.log("logout2")
     localStorage.removeItem('user')
 }
 const authService = {
