@@ -41,7 +41,6 @@ else {
 
 app.use(errorHandler);
 
-//finised
 
 app.listen(port, () => console.log("server is running "));
 
